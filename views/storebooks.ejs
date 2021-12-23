@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if(p){%>
+        <a href="/addBooks"><button>Add New Books</button></a>
+    <%}%>
+    <% for(var i=0; i < book.length ; i++){%>
+        <h2><%= book[i].name %></h2>
+        <p>Author: <%= book[i].Author %></p>
+        <p>Vol: <%= book[i].Vol %></p>
+        <%if(book[i].copies==0){%>
+        <p>Out Of Stock</p>
+        <%}else{%>
+        <p>No of copies: <%= book[i].copies %></p>
+        <%}%>
+        <p>Google book Id: <%= book[i].gid %></p>
+        <% if(p){%>
+            <a href="/removeBook/<%= book[i]._id %>"><button>Remove</button></a>
+            <a href="/editBook/<%= book[i]._id %>"><button>Edit</button></a>
+        <%}%>
+            
+   <% } %>
+   
+</body>
+</html>
